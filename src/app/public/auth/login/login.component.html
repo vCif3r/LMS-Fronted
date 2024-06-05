@@ -1,0 +1,45 @@
+<section class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0"> 
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+            <mat-card>
+                <mat-card-header>
+                    <span class="pb-4 pt-2 text-2xl font-medium">Iniciar sesión</span>
+                </mat-card-header>
+                <mat-card-content>
+                    <form action="">
+                        <mat-form-field class="w-full">
+                            <mat-label>Correo Electrónico</mat-label>
+                            <input type="email" matInput>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="w-full" >
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'">
+                            <a mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </a>
+                        </mat-form-field>
+                        <mat-checkbox color="primary">remember me</mat-checkbox>
+                        <div class="space-y-3">
+                            <button mat-raised-button color="primary" class="w-full">Iniciar sesión</button>
+                            <button mat-raised-button class="w-full">
+                                <div class="flex gap-2">
+                                    <img src="assets/google-logo.png" width="20" height="
+                                20" alt="">
+                                    <span>Iniciar sesión con Google</span>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </mat-card-content>
+                <mat-card-footer align="end">
+                    <p class="pt-4 text-center">¿No tienes una cuenta? 
+                        <a href="" class="underline">Ingresa aquí</a>
+                    </p>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</section>
+<!-- <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mobile-app.svg" alt=""> -->

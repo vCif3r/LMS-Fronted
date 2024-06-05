@@ -1,0 +1,26 @@
+<div class="p-4 flex flex-col justify-between h-full">
+    <div>
+        <div class="flex gap-2 items-center p-2">
+            <img src="https://scontent.ftru1-1.fna.fbcdn.net/v/t39.30808-6/429571271_1853744525060491_777487247607701043_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=d-8Apm_gzwcQ7kNvgENcJPX&_nc_ht=scontent.ftru1-1.fna&oh=00_AYAKdb-OJ-2WJYRYGTzEbuUZGHDy4jmM4tlWMqfCZ_U5Eg&oe=6665B083" alt="img"
+                class="w-10 h-10 rounded-md border">
+            <span class="font-semibold text-lg"> JCCS</span>
+        </div>
+        <hr>
+        <ul class="flex-1 pt-4">
+            @for (sidenav of sidebarMenu; track $index) {
+            <li class="mt-0.5 w-full">
+                <a class="p-2 flex items-center whitespace-nowrap gap-2 transition-colors rounded-md" routerLink="{{ sidenav.link }}" routerLinkActive="shadow bg-gradient-to-tl from-red-900 to-red-500 active">
+                    <div class="flex items-center justify-center text-center" >
+                        <mat-icon matListItemIcon class="material-icons-outlined">{{ sidenav.icon }}</mat-icon>
+                    </div>
+                    <span>{{ sidenav.menu }}</span>
+                </a>
+            </li>
+            }
+        </ul>
+    </div>
+    <button class="w-full flex items-center p-2 gap-2 shadow bg-gradient-to-tl from-red-900 to-red-500 text-white rounded-md">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+    </button>
+</div>
