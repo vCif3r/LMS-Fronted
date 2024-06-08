@@ -1,0 +1,10 @@
+<div class="bg-white rounded-lg border-2">
+    <div class="border-b p-4">
+        <h1 class="font-medium text-gray-400 text-xl"><b class="text-black">{{courses.length || 0}}</b> Cursos en total</h1>
+    </div>
+    <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 p-4">
+        @for (c of courses; track $index) {
+            <app-course-card [course]="c"></app-course-card>
+        }
+    </div>
+</div>

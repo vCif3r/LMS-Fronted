@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./public/public.module').then(m => m.PublicModule) },
-  { path: 'lms', loadChildren: ()=>import('./intranet/intranet.module').then(m => m.IntranetModule)}
+  { path: 'virtual', loadChildren: ()=>import('./intranet/intranet.module').then(m => m.IntranetModule)}
 ];
 
 @NgModule({

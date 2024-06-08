@@ -1,13 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 /* 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-family: "Heebo", sans-serif;
   font-style: normal;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Estilo para el track de la scrollbar */
+::-webkit-scrollbar-track {
+  background: #e5e5e5; /* Color de fondo del track */
+}
+
+/* Estilo para el thumb de la scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1; /* Color del thumb */
+  border-radius: 10px; /* Bordes redondeados del thumb */
+}
+
+/* Estilo para el thumb cuando está en hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a5a5a5; /* Color del thumb en hover */
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

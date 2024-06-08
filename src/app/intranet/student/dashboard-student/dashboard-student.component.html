@@ -1,14 +1,18 @@
-<div class="flex">
-    <div class="w-9/12">
+<div class="lg:flex lg:flex-row md:flex-col gap-4">
+    <!-- first row -->
+    <div class="lg:w-9/12 w-full md:w-full flex flex-col gap-5">
         <section class="text-blueGray-700 bg-gradient-to-tl from-violet-800 to-red-500 text-white rounded-lg">
-            <div class="container flex flex-col items-center px-5 py-16 mx-auto md:flex-row lg:px-28">
-                <div class="flex flex-col items-start mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-20 md:pr-16 md:mb-0">
-                    <h1 class="mb-8 text-2xl font-black title-font"> Medium length
-                        display headline. </h1>
-                    <p class="mb-8 text-base leading-relaxed text-left text-blueGray-600 "> Deploy your mvp in minutes, not
-                        days. WT offers you a a wide selection swapable sections for your landing page. </p>
+            <div class="container flex flex-col items-center p-7 mx-auto md:flex-row lg:px-28">
+                <div class="flex flex-col gap-2 items-start text-left lg:flex-grow md:w-1/2 lg:pr-20 md:pr-16 md:mb-0">
+                    <div class="flex gap-2">
+                        <h1 class="text-2xl font-bold">Bienvenido Michael</h1>
+                        <mat-icon class="text-amber-300">waving_hand</mat-icon>
+                    </div>
+                    <p class="text-base leading-relaxed text-left">¿Ya visualizaste tus cursos? No olvides de entregar tus tareas asignadas.
+                    😊
+                    </p>
                     <div class="flex flex-col justify-center lg:flex-row">
-                        <button class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">Show me</button>            
+                        <button class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">Entendido</button>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/3 lg:max-w-lg md:w-1/2">
@@ -17,8 +21,41 @@
                 </div>
             </div>
         </section>
+        <div class="p-6 border rounded-md bg-gray-50">
+            <div class="w-full flex justify-between items-start pb-3">
+                <h1 class="font-medium text-2xl">Mis cursos</h1>
+                <a routerLink="/virtual/student/courses" class="leading-6 text-gray-900 border-b-2 border-white hover:border-cyan-700 transition duration-300 ease-in-out">Ver todos</a>
+            </div>
+            <section class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
+                @for (c of courses; track $index) {
+                <app-course-card [course]="c"></app-course-card>
+                }
+            </section>
+        </div>
     </div>
-    <div class="w-3/12">
+    <!-- end first row -->
 
+    <!-- second row -->
+    <div class="lg:w-3/12 w-full md:w-full">
+        <mat-card class="container-task">
+            <mat-card-header>
+                <h1 class="font-semibold">Tareas pendientes</h1>
+            </mat-card-header>
+            <div class="p-4 space-y-2">
+                <!-- tasks -->
+                @for (t of tasks; track $index) {
+                    <div class="flex items-center gap-3 p-3 rounded border bg-gray-50">
+                        <div class="p-1 bg-blue-200 rounded-md flex justify-center items-center">
+                            <mat-icon class="m-auto text-gray-50">task</mat-icon>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-sm">{{t.course}}</span>
+                            <p class="font-light text-sm">{{t.title}}</p>
+                            <small>vence: <span class="text-red-600">{{t.fecha}}</span></small>
+                        </div>
+                    </div>
+                }
+            </div>
+        </mat-card>
     </div>
 </div>

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Course } from '../../../model/course';
+import { Teacher } from './../../../model/teacher';
 
 @Component({
-  selector: 'app-dashboard-student',
-  templateUrl: './dashboard-student.component.html',
-  styleUrl: './dashboard-student.component.css'
+  selector: 'app-courses-student',
+  templateUrl: './courses-student.component.html',
+  styleUrl: './courses-student.component.css'
 })
-export class DashboardStudentComponent {
+export class CoursesStudentComponent {
   courses: Course[] = [
     {
       title: 'Javascript',
@@ -53,27 +54,4 @@ export class DashboardStudentComponent {
       }
     }
   ];
-
-  tasks = [
-    {
-      title: 'Operaciones combinadas 2',
-      fecha: '06/06/2024',
-      course: 'Matemática'
-    },
-    {
-      title: 'Esto es una tarea de ejemplo',
-      fecha: '16/06/2024',
-      course: 'Comunicación'
-    },
-    {
-      title: 'Esto es una tarea de ejemplo',
-      fecha: '10/06/2024',
-      course: 'Ingles'
-    },
-    {
-      title: 'Esto es una tarea de ejemplo 2',
-      fecha: '11/06/2024',
-      course: 'Ingles'
-    }
-  ]
 }

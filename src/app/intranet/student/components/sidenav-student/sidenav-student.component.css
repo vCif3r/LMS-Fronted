@@ -1,7 +1,27 @@
-a{
-    color: #7f839a;
-    font-size: 1rem;
+.navlink{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0.7rem 0.5rem;
+    color: #656565;
+    transition: 300ms  ease-out;
 }
-.active{
-    color: #FFFFFF;
+.navlink-active, .navlink:hover{
+    background-color: #FFF;
+}
+.navlink-active mat-icon, .navlink:hover mat-icon{
+    color: #545f9a;
+}
+
+.navlink-logout{
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0.7rem 0.5rem;
+    background-color: #454545;
+    color: #f0f0f0;
 }

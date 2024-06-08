@@ -14,7 +14,7 @@ export interface sidebarMenu{
 export class SidenavStudentComponent {
   sidebarMenu: sidebarMenu[] = [
     {
-      link: '/lms/student/dashboard',
+      link: '/virtual/student/dashboard',
       icon: 'dashboard',
       menu: 'Tablero',
     },
@@ -25,7 +25,7 @@ export class SidenavStudentComponent {
     },
 
     {
-      link: '/menu',
+      link: '/virtual/student/courses',
       icon: 'books',
       menu: 'Cursos',
     },

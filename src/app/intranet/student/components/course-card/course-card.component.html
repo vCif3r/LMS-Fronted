@@ -1,0 +1,17 @@
+<mat-card>
+  <div class="p-2">
+    <img src="{{course?.image}}" alt="{{course?.title}}" class="w-full">
+  </div>
+  <mat-card-header>
+    <img mat-card-avatar src="{{course?.instructor?.avatar}}" alt="">
+    <mat-card-title>{{course?.instructor?.name}} {{course?.instructor?.lastName}}</mat-card-title>
+    <mat-card-subtitle>Docente</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{course?.description}}</p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-stroked-button color="primary" class="w-full">Ver más</button>
+  </mat-card-actions>
+</mat-card>
