@@ -1,0 +1,8 @@
+mat-card{
+    border: 1px solid #EFECFF;
+    box-shadow: none;
+}
+
+mat-card.list{
+    display: flex !important;
+}

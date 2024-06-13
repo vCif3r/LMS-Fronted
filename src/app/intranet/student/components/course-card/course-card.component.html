@@ -1,17 +1,21 @@
-<mat-card>
+<mat-card [ngClass]="view">
   <div class="p-2">
-    <img src="{{course?.image}}" alt="{{course?.title}}" class="w-full">
+    <img src="{{course?.image}}" alt="{{course?.title}}" class="img">
   </div>
-  <mat-card-header>
-    <img mat-card-avatar src="{{course?.instructor?.avatar}}" alt="">
-    <mat-card-title>{{course?.instructor?.name}} {{course?.instructor?.lastName}}</mat-card-title>
-    <mat-card-subtitle>Docente</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>{{course?.description}}</p>
-    <mat-divider></mat-divider>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-stroked-button color="primary" class="w-full">Ver más</button>
-  </mat-card-actions>
+  <div>
+    <div class="p-3 flex gap-3">
+      <img class="rounded-full" src="{{course?.instructor?.avatar}}" alt="" width="50" height="50">
+      <div>
+        <mat-card-title>{{course?.instructor?.name}} {{course?.instructor?.lastName}}</mat-card-title>
+        <mat-card-subtitle>Docente</mat-card-subtitle>
+      </div>
+    </div>
+    <div class="px-3">
+      <p>{{course?.description}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="pb-3">
+      <button mat-stroked-button color="primary" class="w-full">Ver más</button>
+    </div>
+  </div>
 </mat-card>

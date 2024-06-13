@@ -1,10 +1,19 @@
-<div class="bg-white rounded-lg border-2">
-    <div class="border-b p-4">
-        <h1 class="font-medium text-gray-400 text-xl"><b class="text-black">{{courses.length || 0}}</b> Cursos en total</h1>
+<div class="bg-white rounded-lg border w-9/12">
+    <div class="p-4 flex justify-between">
+        <h1 class="text-gray-500">{{courses.length || 0}} cursos en total</h1>
+        <div class="flex gap-2">
+            <button class="border p-1 flex items-center justify-center text-slate-600 rounded" (click)="setView('list')" [ngClass]="{'selected': currentView === 'list'}">
+                <mat-icon>list</mat-icon>
+            </button>
+            <button class="border p-1 flex items-center justify-center text-slate-600 rounded" (click)="setView('grid')" [ngClass]="{'selected': currentView === 'grid'}">
+                <mat-icon>grid_view</mat-icon>
+            </button>
+        </div>
     </div>
-    <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 p-4">
+    <!-- card course list/grid -->
+    <div [ngClass]="currentView">
         @for (c of courses; track $index) {
-            <app-course-card [course]="c"></app-course-card>
+            <app-course-card [course]="c" [view]="currentView"></app-course-card>
         }
     </div>
 </div>

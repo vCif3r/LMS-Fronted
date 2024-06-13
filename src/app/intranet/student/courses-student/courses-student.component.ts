@@ -8,6 +8,12 @@ import { Teacher } from './../../../model/teacher';
   styleUrl: './courses-student.component.css'
 })
 export class CoursesStudentComponent {
+
+  currentView:string = 'grid'
+  setView(view: string) {
+    this.currentView = view;
+  }
+
   courses: Course[] = [
     {
       title: 'Javascript',
@@ -52,6 +58,28 @@ export class CoursesStudentComponent {
         email: 'alex@example.com',
         avatar: 'https://dreamslms.dreamstechnologies.com/html/assets/img/user/user6.jpg'
       }
-    }
+    },
+    {
+      title: 'Responsive Web Design',
+      image: 'https://dreamslms.dreamstechnologies.com/html/assets/img/course/course-17.jpg',
+      description: 'Responsive Web Design Essentials HTML5 CSS3 ...',
+      instructor: {
+        name: 'Alex',
+        lastName: 'Flores',
+        email: 'alex@example.com',
+        avatar: 'https://dreamslms.dreamstechnologies.com/html/assets/img/user/user6.jpg'
+      }
+    },
+    {
+      title: 'UI/UX Design',
+      image: 'https://dreamslms.dreamstechnologies.com/html/assets/img/course/course-10.jpg',
+      description: 'Information About UI/UX Design Degree',
+      instructor: {
+        name: 'Jhon',
+        lastName: 'Doe',
+        email: 'doe@example.com',
+        avatar: 'https://dreamslms.dreamstechnologies.com/html/assets/img/user/user.jpg'
+      }
+    },
   ];
 }

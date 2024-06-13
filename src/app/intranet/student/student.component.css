@@ -2,14 +2,15 @@ mat-sidenav{
     width: 250px;
     border: none;
 }
-mat-sidenav-container, mat-sidenav{
-    background-color: #f1f3f3;
+mat-sidenav-container{
+    background-color: #FAFAFA;
+}
+mat-sidenav{
+    background-color: #FDFDFD;
 }
 mat-sidenav-content{
     padding: 1rem;
 }
 mat-toolbar{
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    background-color: transparent;
 }
