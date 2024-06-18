@@ -1,21 +1,17 @@
-<mat-card [ngClass]="view">
+<div [ngClass]="view" class="card-course">
   <div class="p-2">
-    <img src="{{course?.image}}" alt="{{course?.title}}" class="img">
+    <img src="{{course?.image}}" alt="{{course?.title}}" class="w-full">
   </div>
-  <div>
-    <div class="p-3 flex gap-3">
+  <div class="w-full px-3 py-1 space-y-3">
+    <!-- instructor section -->
+    <div class="flex gap-3">
       <img class="rounded-full" src="{{course?.instructor?.avatar}}" alt="" width="50" height="50">
       <div>
-        <mat-card-title>{{course?.instructor?.name}} {{course?.instructor?.lastName}}</mat-card-title>
-        <mat-card-subtitle>Docente</mat-card-subtitle>
+        <h1 class="font-semibold">{{course?.instructor?.name}} {{course?.instructor?.lastName}}</h1>
+        <p class="text-sm text-gray-500">Docente</p>
       </div>
     </div>
-    <div class="px-3">
-      <p>{{course?.description}}</p>
-      <mat-divider></mat-divider>
-    </div>
-    <div class="pb-3">
-      <button mat-stroked-button color="primary" class="w-full">Ver más</button>
-    </div>
+    <p class="text-gray-500">{{course?.description}}</p>
+    <button mat-button color="primary" class="w-full" routerLink="/virtual/student/courses/1">Ver más</button>
   </div>
-</mat-card>
+</div>

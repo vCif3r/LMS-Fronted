@@ -1,4 +1,4 @@
-<div class="bg-white rounded-lg border w-9/12">
+<div class="bg-white rounded-lg border w-full lg:w-9/12">
     <div class="p-4 flex justify-between">
         <h1 class="text-gray-500">{{courses.length || 0}} cursos en total</h1>
         <div class="flex gap-2">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <!-- card course list/grid -->
-    <div [ngClass]="currentView">
+    <div [ngClass]="currentView" class="p-4">
         @for (c of courses; track $index) {
             <app-course-card [course]="c" [view]="currentView"></app-course-card>
         }

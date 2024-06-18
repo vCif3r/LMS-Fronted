@@ -9,9 +9,11 @@ import { CoursesStudentComponent } from './courses-student/courses-student.compo
 import { CourseCardComponent } from './components/course-card/course-card.component';
 import { ToolbarStudentComponent } from './components/toolbar-student/toolbar-student.component';
 import { CourseStudentComponent } from './course-student/course-student.component';
+import { TaskDetailStudentComponent } from './task-detail-student/task-detail-student.component';
+import { ModuleCourseStudentComponent } from './course-student/container/module-course-student/module-course-student.component';
 
 @NgModule({
-  declarations: [StudentComponent, SidenavStudentComponent, DashboardStudentComponent, ProfileStudentComponent, CoursesStudentComponent, CourseCardComponent, ToolbarStudentComponent, CourseStudentComponent],
+  declarations: [StudentComponent, SidenavStudentComponent, DashboardStudentComponent, ProfileStudentComponent, CoursesStudentComponent, CourseCardComponent, ToolbarStudentComponent, CourseStudentComponent, TaskDetailStudentComponent, ModuleCourseStudentComponent],
   imports: [
     StudentRoutingModule,
     SharedModule

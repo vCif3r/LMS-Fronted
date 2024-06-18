@@ -8,9 +8,3 @@ mat-sidenav-container{
 mat-sidenav{
     background-color: #FDFDFD;
 }
-mat-sidenav-content{
-    padding: 1rem;
-}
-mat-toolbar{
-    background-color: transparent;
-}

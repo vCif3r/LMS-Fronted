@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, signal } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, map, shareReplay } from 'rxjs';
 
 @Component({
@@ -8,12 +9,15 @@ import { Observable, map, shareReplay } from 'rxjs';
   styleUrl: './student.component.css'
 })
 export class StudentComponent {
-  collapsed = signal(false);
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay()
+  @ViewChild('sidenav') sidenav?: MatSidenav;
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map((result) => result.matches),
+    shareReplay()
   );
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  toggleSidenav() {
+    this.sidenav?.toggle();
+  }
 }

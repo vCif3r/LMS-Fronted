@@ -15,9 +15,9 @@ export class CourseStudentComponent implements OnInit{
     this.newTitle.setTitle('JavaScript')
 
     this.course = {
-      title: 'Javascript',
+      title: 'Desarrollo de aplicaciones web con Javascript',
       image: 'https://stride.com.co/wp-content/uploads/2023/01/gabriel-heinzer-g5jpH62pwes-unsplash-1024x768.jpg',
-      description: 'Learn JavaScript and Express to become a...',
+      description: 'JavaScript, often abbreviated as JS, is a programming language and core technology of the Web, alongside HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior. Web browsers have a dedicated JavaScript engine that executes the client code.',
       instructor: {
         name: 'Jhon',
         lastName: 'Doe',

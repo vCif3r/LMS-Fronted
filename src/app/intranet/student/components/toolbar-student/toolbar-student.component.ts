@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar-student',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './toolbar-student.component.css'
 })
 export class ToolbarStudentComponent implements OnInit{
+  @Output() toggleSidenav = new EventEmitter<void>();
+  @Input() isHandset$?: Observable<boolean>;
+
+  onToggleSidenav() {
+    this.toggleSidenav.emit();
+  }
 
   listNotifications: any[] = [];
 
