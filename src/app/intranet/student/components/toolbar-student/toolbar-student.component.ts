@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from '../../../../core/services/authentication.service';
 
 @Component({
   selector: 'app-toolbar-student',
@@ -16,8 +17,16 @@ export class ToolbarStudentComponent implements OnInit{
 
   listNotifications: any[] = [];
 
+  user?:any
+  constructor(private authService: AuthenticationService){}
+
   ngOnInit(): void {
     this.getNotifications()
+    this.getUserAuthenticated()
+  }
+
+  getUserAuthenticated(){
+    this.user = this.authService.getUser()
   }
 
   getNotifications() {

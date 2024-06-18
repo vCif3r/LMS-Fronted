@@ -36,9 +36,9 @@
                 <button [matMenuTriggerFor]="menu">
                     <button class="p-1.5 flex items-center border rounded-lg bg-white leading-4 gap-2">
                         <img src="https://www.w3schools.com/howto/img_avatar.png" class="rounded-full" alt="" height="27" width="27">
-                        <div class="space-y-0 flex flex-col">
-                            <span class="font-semibold text-[13px]">Jhon Doe</span>
-                            <span class="text-gray-500 text-[12px]">estudiante</span>
+                        <div class="space-y-0 flex flex-col items-start">
+                            <span class="font-semibold text-[13px]">{{user?.name}}</span>
+                            <span class="text-gray-500 text-[12px]">{{user?.role}}</span>
                         </div>
                         <mat-icon>keyboard_arrow_down</mat-icon>
                     </button>

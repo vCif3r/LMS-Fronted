@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../../../../core/services/authentication.service';
 
 export interface sidebarMenu{
   link: string;
@@ -12,6 +13,12 @@ export interface sidebarMenu{
   styleUrl: './sidenav-student.component.css'
 })
 export class SidenavStudentComponent {
+  constructor(private authService: AuthenticationService){}
+
+  logout(){
+    this.authService.logout()
+  }
+
   sidebarMenu: sidebarMenu[] = [
     {
       link: '/virtual/student/dashboard',
