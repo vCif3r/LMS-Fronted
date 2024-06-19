@@ -1,17 +1,17 @@
 <div [ngClass]="view" class="card-course">
   <div class="p-2">
-    <img src="{{course?.image}}" alt="{{course?.title}}" class="w-full">
+    <img src="{{course?.image}}" alt="{{course?.title}}" class="w-full min-w-60 h-40 rounded-md">
   </div>
   <div class="w-full px-3 py-1 space-y-3">
     <!-- instructor section -->
     <div class="flex gap-3">
-      <img class="rounded-full" src="{{course?.instructor?.avatar}}" alt="" width="50" height="50">
-      <div>
+      <img class="rounded-full" src="{{course?.instructor?.avatar || 'https://as1.ftcdn.net/v2/jpg/03/53/11/00/1000_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg'}}" alt="" width="40" height="40">
+      <div class="flex flex-col justify-center">
         <h1 class="font-semibold">{{course?.instructor?.name}} {{course?.instructor?.lastName}}</h1>
         <p class="text-sm text-gray-500">Docente</p>
       </div>
     </div>
-    <p class="text-gray-500">{{course?.description}}</p>
-    <button mat-button color="primary" class="w-full" routerLink="/virtual/student/courses/1">Ver más</button>
+    <p class="text-gray-500">{{course?.description | slice:0:100}}...</p>
+    <a mat-button color="primary" class="w-full" [routerLink]="['/virtual/student/courses', course?._id]">Ver más</a>
   </div>
 </div>

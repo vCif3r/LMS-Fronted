@@ -5,6 +5,7 @@ import { DashboardStudentComponent } from './dashboard-student/dashboard-student
 import { CoursesStudentComponent } from './courses-student/courses-student.component';
 import { CourseStudentComponent } from './course-student/course-student.component';
 import { TaskDetailStudentComponent } from './task-detail-student/task-detail-student.component';
+import { ProfileStudentComponent } from './profile-student/profile-student.component';
 
 const routes: Routes = [
   {
@@ -27,8 +28,12 @@ const routes: Routes = [
         component: CourseStudentComponent
       },
       {
-        path: 'tasks/:id',
+        path: 'tasks/:taskId',
         component: TaskDetailStudentComponent
+      },
+      {
+        path: 'profile/:studentId',
+        component: ProfileStudentComponent
       }
     ]
   }

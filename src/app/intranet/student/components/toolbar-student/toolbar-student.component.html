@@ -45,7 +45,7 @@
                 </button>
                 <mat-menu #menu="matMenu" class="profile-dropdown w-44">
                     <div>
-                        <button mat-menu-item>Mi perfil</button>
+                        <button mat-menu-item [routerLink]="['/virtual/student/profile', user?._id]">Mi perfil</button>
                         <button mat-menu-item>Editar perfil</button>
                         <button mat-menu-item>Configuración</button>
                     </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Course } from '../../../model/course';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CourseService } from '../../../core/services/course.service';
 
 @Component({
   selector: 'app-course-student',
@@ -9,22 +11,19 @@ import { Course } from '../../../model/course';
 })
 export class CourseStudentComponent implements OnInit{
   course?: Course;
-  constructor(private newTitle: Title){}
+  constructor(private newTitle: Title,
+    private route: ActivatedRoute,
+    private service: CourseService
+  ){}
 
   ngOnInit(): void {
-    this.newTitle.setTitle('JavaScript')
-
-    this.course = {
-      title: 'Desarrollo de aplicaciones web con Javascript',
-      image: 'https://stride.com.co/wp-content/uploads/2023/01/gabriel-heinzer-g5jpH62pwes-unsplash-1024x768.jpg',
-      description: 'JavaScript, often abbreviated as JS, is a programming language and core technology of the Web, alongside HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior. Web browsers have a dedicated JavaScript engine that executes the client code.',
-      instructor: {
-        name: 'Jhon',
-        lastName: 'Doe',
-        email: 'doe@example.com',
-        avatar: 'https://dreamslms.dreamstechnologies.com/html/assets/img/user/user.jpg'
-      }
-    }
+    const id = this.route.snapshot.paramMap.get('courseId');
+    console.log(id)
+    this.service.getCourse(id).subscribe((data) => {
+      this.course = data;
+      this.newTitle.setTitle(this.course.title)
+      console.log(data);
+    });
   }
 
 }
