@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../model/user';
+import { User } from '../../../core/model/user';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../../core/services/user.service';
+import { StudentService } from '../../../core/services/student.service';
+import { Student } from '../../../core/model/student';
 
 @Component({
   selector: 'app-profile-student',
@@ -10,10 +11,10 @@ import { UserService } from '../../../core/services/user.service';
   styleUrl: './profile-student.component.css'
 })
 export class ProfileStudentComponent implements OnInit {
-  student?: User;
+  student?: Student;
   constructor(private newTitle: Title,
     private route: ActivatedRoute,
-    private service: UserService
+    private service: StudentService
   ){}
 
   ngOnInit(): void {

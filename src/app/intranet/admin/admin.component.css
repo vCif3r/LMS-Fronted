@@ -1,0 +1,11 @@
+mat-sidenav{
+    border: none;
+    width: 280px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+mat-sidenav-container{
+    background-color: whitesmoke;
+    min-height: 100vh;
+}

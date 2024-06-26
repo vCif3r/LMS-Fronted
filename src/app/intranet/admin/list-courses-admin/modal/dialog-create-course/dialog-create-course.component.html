@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Nuevo Estudiante</h2>
+<form [formGroup]="createCourseForm" (ngSubmit)="saveCourse()" >
+    <mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Título</mat-label>
+            <input matInput placeholder="Titulo" formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <input matInput placeholder="Descripción" formControlName="description">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Grado</mat-label>
+            <mat-select formControlName="grade">
+                <mat-option *ngFor="let grade of grades" [value]="grade._id">
+                    {{ grade.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions [align]="'end'">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit"
+            [disabled]="!createCourseForm.valid">Guardar</button>
+    </mat-dialog-actions>
+</form>

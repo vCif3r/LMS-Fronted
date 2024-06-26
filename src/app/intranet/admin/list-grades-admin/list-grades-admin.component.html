@@ -1,0 +1,27 @@
+<div class="flex justify-end py-4">
+  <button class="bg-gradient-to-r from-purple-400 to-red-400 p-1.5
+ rounded-md text-white" (click)="openDialogCreate()">Nuevo Grado</button>
+</div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="Nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let grade"> {{grade.name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Descripcion">
+    <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+    <td mat-cell *matCellDef="let grade"> {{grade.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Acciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let grade"> </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -7,7 +7,7 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private url = "http://localhost:3000/auth"
+  private url = "http://localhost:3000/api/auth"
 
   constructor(private _http: HttpClient) { }
 
@@ -57,6 +57,15 @@ export class AuthenticationService {
     if(token){
       const user:any = jwtDecode(token)
       return user 
+    }
+    return null;
+  }
+
+  getIdUser():any{
+    const token = localStorage.getItem('token');
+    if(token){
+      const user:any = jwtDecode(token)
+      return user._id
     }
     return null;
   }

@@ -3,17 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { RoleGuard } from '../core/guards/RoleGuard.guard';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'student',
-  //   pathMatch: 'full'
-  // },
   {
     path: 'student',
     loadChildren: () => import('./student/student.module').then((m) => m.StudentModule),
     canActivate: [RoleGuard],
     data: { expectedRole: 'student' }
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+    //canActivate: [RoleGuard],
+    //data: { expectedRole: 'admin' }
+  }
 ];
 
 @NgModule({

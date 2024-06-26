@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Nuevo Profesor</h2>
+<form [formGroup]="teacherSaveForm" (ngSubmit)="saveStudent()" >
+    <mat-dialog-content>
+        <div class="flex gap-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput placeholder="Apellidos" formControlName="lastname">
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input matInput placeholder="Correo Electrónico" formControlName="email">
+        </mat-form-field>
+        <div class="flex gap-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Teléfono</mat-label>
+                <input matInput placeholder="Teléfono" formControlName="phone">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" placeholder="Contraseña" formControlName="password">
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field>
+            <mat-label>Grado</mat-label>
+            <mat-select formControlName="grade">
+                <mat-option *ngFor="let grade of grades" [value]="grade._id">
+                    {{ grade.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions [align]="'end'">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit"
+            [disabled]="!teacherSaveForm.valid">Guardar</button>
+    </mat-dialog-actions>
+</form>

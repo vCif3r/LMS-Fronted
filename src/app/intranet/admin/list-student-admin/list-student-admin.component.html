@@ -1,0 +1,40 @@
+<div class="flex py-4 justify-end">
+  <button class="bg-orange-400 p-1.5 text-white rounded" (click)="openDialogCreateStudent()">Nuevo estudiante</button>
+</div>
+
+<table mat-table [dataSource]="dataSource">
+  <!-- Position Column -->
+  <ng-container matColumnDef="Nombre">
+    <th mat-header-cell *matHeaderCellDef>
+      Nombre
+    </th>
+    <td mat-cell *matCellDef="let student"> {{student.name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Apellido">
+    <th mat-header-cell *matHeaderCellDef>
+      Apellido
+    </th>
+    <td mat-cell *matCellDef="let student"> {{student.lastname}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Correo">
+    <th mat-header-cell *matHeaderCellDef>
+      Correo
+    </th>
+    <td mat-cell *matCellDef="let student"> {{student.email}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Telefono">
+    <th mat-header-cell *matHeaderCellDef>
+      Teléfono
+    </th>
+    <td mat-cell *matCellDef="let student"> {{student.phone | censorPhone}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Course } from '../../../../model/course';
+import { Course } from '../../../../core/model/course';
+import { Enrollement } from '../../../../core/model/enrollement';
+import { CourseDetail } from '../../../../core/model/courseDetail';
 
 @Component({
   selector: 'app-course-card',
@@ -7,6 +9,8 @@ import { Course } from '../../../../model/course';
   styleUrl: './course-card.component.css'
 })
 export class CourseCardComponent {
-  @Input() course?: Course
+   // @Input() enrollement?: Enrollement
+  // @Input() view?: string
+  @Input() courseDetails?: CourseDetail
   @Input() view?: string
 }

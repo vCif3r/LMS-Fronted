@@ -1,6 +1,6 @@
 <div class="bg-white rounded-lg border w-full lg:w-9/12">
     <div class="p-4 flex justify-between items-center">
-        <h1 class="text-gray-500">{{courses.length || 0}} cursos en total</h1>
+        <h1 class="text-gray-500">{{size || 0}} cursos en total</h1>
         <div class="flex gap-2">
             <button class="border p-1 flex items-center justify-center text-slate-600 rounded" (click)="setView('list')" [ngClass]="{'selected': currentView === 'list'}">
                 <mat-icon>list</mat-icon>
@@ -12,8 +12,10 @@
     </div>
     <!-- card course list/grid -->
     <div [ngClass]="currentView" class="p-4">
-        @for (c of courses; track $index) {
-            <app-course-card [course]="c" [view]="currentView"></app-course-card>
+        @for (c of enrollments; track $index) {
+            @for (item of c.courseDetail; track $index) {
+                <app-course-card [courseDetails]="item" [view]="currentView"></app-course-card>
+            }
         }
     </div>
 </div>

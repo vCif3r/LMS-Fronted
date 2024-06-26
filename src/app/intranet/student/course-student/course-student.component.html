@@ -2,7 +2,7 @@
     <div class="w-8/12 space-y-4">
 
         <div class=" shadow rounded-lg overflow-hidden bg-white">
-            <img src="{{course?.image}}" class="w-full object-cover h-[400px]" alt="">
+            <img src="{{course?.course?.image || 'https://cloud-atg.moph.go.th/quality/sites/default/files/default_images/default.png'}}" class="w-full object-cover h-[400px]" alt="">
             
     
         </div>
@@ -10,10 +10,10 @@
         <mat-tab-group animationDuration="100ms">
             <mat-tab label="Información">
                 <div class="p-8 space-y-6">
-                    <h1 class="text-3xl font-semibold">{{course?.title}}</h1>
+                    <h1 class="text-3xl font-semibold">{{course?.course?.title}}</h1>
                     <div>
                         <h1 class="font-semibold mb-3 text-xl">Descripción</h1>
-                        <p class="text-gray-600">{{course?.description}}</p>
+                        <p class="text-gray-600">{{course?.course?.description}}</p>
                     </div>
                     <div>
                         <h1 class="font-semibold mb-3 text-xl">Objetivos</h1>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../../model/course';
-import { Teacher } from './../../../model/teacher';
+import { Course } from '../../../core/model/course';
 import { CourseService } from '../../../core/services/course.service';
+import { Enrollement } from '../../../core/model/enrollement';
+import { EnrollmentService } from '../../../core/services/enrollement.service';
+import { AuthenticationService } from '../../../core/services/authentication.service';
 
 @Component({
   selector: 'app-courses-student',
@@ -9,8 +11,10 @@ import { CourseService } from '../../../core/services/course.service';
   styleUrl: './courses-student.component.css'
 })
 export class CoursesStudentComponent implements OnInit {
-  courses: Course[] = []
-  constructor(private courseService: CourseService){}
+  enrollments: Enrollement[] = []
+  constructor(private enrollmentService: EnrollmentService, private authService: AuthenticationService){}
+
+  size:any = 1
 
   currentView:string = 'grid'
   setView(view: string) {
@@ -18,15 +22,22 @@ export class CoursesStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getListCourses()
+    this.getListEnrollments();
   }
 
-  getListCourses(){
-    this.courseService.listCourses().subscribe(courses => {
-      this.courses = courses
-      console.log(courses)
-    })
-  }
+  getListEnrollments(): void {
+    this.enrollmentService.ListByIdStudent(this.authService.getIdUser()).subscribe( 
+      enrollments => {
+        this.enrollments = enrollments
+        this.enrollments.forEach(enrollment => {
+          this.size++
+        })
+        console.log(enrollments)
+      }
+    )
+    }
+}
+  
 
   // courses: Course[] = [
   //   {
@@ -96,4 +107,4 @@ export class CoursesStudentComponent implements OnInit {
   //     }
   //   },
   // ];
-}
+

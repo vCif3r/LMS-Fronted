@@ -1,9 +1,9 @@
-import { Teacher } from "./teacher"
+import { Grade } from "./grade"
 
 export interface Course{
     _id: string
     title: string
     image: string
     description: string
-    instructor: Teacher
+    grade?: Grade
 }
