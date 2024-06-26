@@ -9,8 +9,6 @@ import { CourseDetail } from '../../../../core/model/courseDetail';
   styleUrl: './course-card.component.css'
 })
 export class CourseCardComponent {
-   // @Input() enrollement?: Enrollement
-  // @Input() view?: string
   @Input() courseDetails?: CourseDetail
   @Input() view?: string
 }

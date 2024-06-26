@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../../../../core/services/authentication.service';
 
 interface Navmenu {
   title: string;
@@ -21,4 +22,10 @@ export class SidenavAdminComponent {
     { title: 'Courses', icon: 'library_books', url: '/virtual/admin/courses' },
     { title: 'Enrollments', icon: 'assignment', url: '/virtual/admin/enrollments' },
   ]
+
+  constructor(private authService: AuthenticationService){}
+
+  logout(){
+    this.authService.logout()
+  }
 }

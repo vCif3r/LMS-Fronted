@@ -6,9 +6,10 @@ import { PublicComponent } from './public.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [PublicComponent, LoginComponent, HomeComponent, NavbarComponent],
+  declarations: [PublicComponent, LoginComponent, HomeComponent, NavbarComponent, FooterComponent],
   imports: [SharedModule, PublicRoutingModule, ReactiveFormsModule],
   exports: [],
   providers: [],
