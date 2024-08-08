@@ -2,13 +2,19 @@
 <form [formGroup]="gradeForm" (ngSubmit)="saveGrade()" class="w-[400px]">
     <mat-dialog-content>
         <mat-form-field appearance="fill">
-            <mat-label>Nombre</mat-label>
-            <input matInput placeholder="1er" formControlName="name">
+            <mat-label>Título</mat-label>
+            <input matInput placeholder="1er" formControlName="title">
         </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Descripción</mat-label>
-            <input matInput placeholder="Descripcion" formControlName="description">
+
+        <mat-form-field>
+            <mat-label>Nivel</mat-label>
+            <mat-select formControlName="level">
+                <mat-option *ngFor="let level of levels" [value]="level.id">
+                    {{ level.title }}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
+
     </mat-dialog-content>
     <mat-dialog-actions [align]="'end'">
         <button mat-button mat-dialog-close>Cancel</button>

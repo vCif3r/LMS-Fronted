@@ -17,16 +17,25 @@ export class ToolbarStudentComponent implements OnInit{
 
   listNotifications: any[] = [];
 
-  user?:any
   constructor(private authService: AuthenticationService){}
 
   ngOnInit(): void {
     this.getNotifications()
-    this.getUserAuthenticated()
   }
 
-  getUserAuthenticated(){
-    this.user = this.authService.getUser()
+  getFullname(){
+    return this.authService.getFullnameUser()
+  }
+  getRoleUser(){
+    return this.authService.getRole()
+  }
+
+  getEmail(){
+    return this.authService.getEmailUser()
+  }
+
+  getIdUser(){
+    return this.authService.getIdUser()
   }
 
   getNotifications() {

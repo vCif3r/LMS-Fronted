@@ -29,8 +29,8 @@
         <mat-form-field>
             <mat-label>Grado</mat-label>
             <mat-select formControlName="grade">
-                <mat-option *ngFor="let grade of grades" [value]="grade._id">
-                    {{ grade.name }}
+                <mat-option *ngFor="let grade of grades" [value]="grade.id">
+                    {{ grade.title }}
                 </mat-option>
             </mat-select>
         </mat-form-field>

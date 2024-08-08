@@ -7,15 +7,15 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private url = "http://localhost:3000/api/auth"
+  private url = "http://127.0.0.1:8000/api/v1"
 
   constructor(private _http: HttpClient) { }
 
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this._http.post<any>(`${this.url}/login`, credentials).pipe(
+    return this._http.post<any>(`${this.url}/login/`, credentials).pipe(
       map(response => {
-        if (response && response.token) {
-          localStorage.setItem('token', response.token);
+        if (response && response.access) {
+          localStorage.setItem('token', response.access);
         }
         return response;
       })
@@ -34,6 +34,7 @@ export class AuthenticationService {
   getToken():any{
     return localStorage.getItem('token')
   }
+
   decodeToken(token: string): any {
     try {
       return jwtDecode(token);
@@ -52,11 +53,20 @@ export class AuthenticationService {
     return null;
   }
 
-  getUser():any{
+  getEmailUser():any{
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.email;
+    }
+    return null;
+  }
+
+  getFullnameUser():any{
     const token = localStorage.getItem('token');
     if(token){
       const user:any = jwtDecode(token)
-      return user 
+      return user.fullname
     }
     return null;
   }
@@ -65,7 +75,7 @@ export class AuthenticationService {
     const token = localStorage.getItem('token');
     if(token){
       const user:any = jwtDecode(token)
-      return user._id
+      return user.user_id
     }
     return null;
   }

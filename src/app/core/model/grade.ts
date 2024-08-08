@@ -1,5 +1,7 @@
+import { Level } from "./level";
+
 export interface Grade {
-    _id: any;
-    name: string;
-    description: string;
+    id: any;
+    title: string;
+    level: Level;
 }

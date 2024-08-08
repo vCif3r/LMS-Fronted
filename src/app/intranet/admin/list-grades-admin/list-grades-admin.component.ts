@@ -15,11 +15,12 @@ export class ListGradesAdminComponent implements OnInit {
   constructor(private _serviceGrades: GradeService) { }
 
   dataSource = new MatTableDataSource<Grade>();
-  displayedColumns: string[] = ['Nombre', 'Descripcion', 'Acciones'];
+  displayedColumns: string[] = ['Nombre', 'Nivel', 'Acciones'];
 
   ngOnInit(): void {
     this._serviceGrades.grades$.subscribe(grades => {
       this.dataSource.data = grades;
+      console.log(grades)
     });
     this._serviceGrades.updateGradesList();
   }

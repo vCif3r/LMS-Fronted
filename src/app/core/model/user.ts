@@ -1,10 +1,15 @@
+import { Role } from "./role"
+
 export interface User{
-    _id: string,
+    id: string,
     name: string,
     lastname: string
     email: string
-    phone: string
-    avatar: string
-    wallpaper: string
-    role: string
+    phone_number: string
+    is_active: Boolean
+    address: string
+    profile_picture: string
+    role: Role
+    date_of_birth: Date
+    nationality: String
 }

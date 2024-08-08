@@ -1,10 +1,10 @@
 import { Course } from "./course"
-import { Teacher } from "./teacher";
+import { User } from "./user"
 
 export interface CourseDetail {
-    _id: string
-    teacher: Teacher
+    id: string
+    teacher: User
     course: Course
-    startDate: Date
-    endDate: Date
+    start_date: Date
+    end_date: Date
 }

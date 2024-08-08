@@ -35,11 +35,12 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(response => {
+        console.log(response)
         if (response) {
           const role = this.authService.getRole();
-          if (role === 'admin') {
+          if (role === 'Admin' || role === 'admin') {
             this.router.navigate(['/virtual/admin']);
-          } else if (role === 'student') {
+          } else if (role === 'Student' || role === 'student') {
             this.router.navigate(['/virtual/student']);
           } else {
             this.router.navigate(['/']);

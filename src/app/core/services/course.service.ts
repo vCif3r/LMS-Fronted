@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course } from '../model/course';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -11,7 +11,7 @@ export class CourseService {
   private coursesSubject = new BehaviorSubject<Course[]>([]);
   courses$ = this.coursesSubject.asObservable();
 
-  private url = "http://localhost:3000/api/courses"
+  private url = "http://127.0.0.1:8000/api/v1/courses/"
   constructor(private _http: HttpClient) { }
 
   updateCoursesList() { // update list automatiquement
@@ -24,11 +24,15 @@ export class CourseService {
     return this._http.get<Course[]>(this.url)
   }
 
-  saveCourse(course: Course): Observable<Course>{
-    return this._http.post<Course>(this.url, course)
+  saveCourse(formData: FormData): Observable<Course> {
+    return this._http.post<Course>(this.url, formData, {
+      headers: new HttpHeaders({
+        'enctype': 'multipart/form-data'
+      })
+    });
   }
 
   getCourse(id:any){
-    return this._http.get<Course>(`${this.url}/${id}`)
+    return this._http.get<Course>(`${this.url}${id}`)
   }
 }

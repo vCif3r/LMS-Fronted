@@ -1,17 +1,17 @@
 <div [ngClass]="view" class="card-course">
   <div class="p-2">
-    <img src="{{courseDetails?.course?.image || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTar_ouGael5ODlrC1kbFbKLpEPSJtTQqdaIg&s'}}" alt="{{courseDetails?.course?.title}}" class="w-full min-w-60 h-40 rounded-md">
+    <img src="{{courseDetails?.course?.picture || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTar_ouGael5ODlrC1kbFbKLpEPSJtTQqdaIg&s'}}" alt="{{courseDetails?.course?.title}}" class="w-full min-w-60 h-40 rounded-md">
   </div>
   <div class="w-full px-3 py-1 space-y-3">
     <!-- instructor section -->
     <div class="flex gap-3">
-      <img class="rounded-full" src="{{courseDetails?.teacher?.avatar || 'https://as1.ftcdn.net/v2/jpg/03/53/11/00/1000_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg'}}" alt="" width="40" height="40">
+      <img class="rounded-full" src="{{courseDetails?.teacher?.profile_picture}}" alt="" width="40" height="40">
       <div class="flex flex-col justify-center">
         <h1 class="font-semibold">{{courseDetails?.teacher?.name}} {{courseDetails?.teacher?.lastname}}</h1>
         <p class="text-sm text-gray-500">Docente</p>
       </div>
     </div>
     <p class="text-gray-500">{{courseDetails?.course?.description | slice:0:100}}...</p>
-    <a mat-button color="primary" class="w-full" [routerLink]="['/virtual/student/courses', courseDetails?._id]">Ver más</a>
+    <a mat-button color="primary" class="w-full" [routerLink]="['/virtual/student/courses', courseDetails?.id]">Ver más</a>
   </div>
 </div>

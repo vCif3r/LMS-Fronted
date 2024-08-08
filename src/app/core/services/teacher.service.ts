@@ -10,7 +10,7 @@ export class TeacherService {
   private teachersSubject = new BehaviorSubject<Teacher[]>([]);
   teachers$ = this.teachersSubject.asObservable();
 
-  private url = "http://localhost:3000/api/teachers"
+  private url = "http://127.0.0.1:8000/api/v1/teachers/"
 
   constructor(private _http: HttpClient) { }
 

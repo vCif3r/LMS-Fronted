@@ -1,9 +1,12 @@
 import { Grade } from "./grade"
 
 export interface Course{
-    _id: string
+    id: string
     title: string
-    image: string
     description: string
-    grade?: Grade
+    grade: Grade
+    is_active: Boolean
+    picture: String
+    created_at: Date,
+    updated_at: Date
 }

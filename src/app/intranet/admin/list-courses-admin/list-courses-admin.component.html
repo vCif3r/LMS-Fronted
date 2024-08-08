@@ -9,7 +9,7 @@
             Imagen
         </th>
         <td mat-cell *matCellDef="let course">
-            <img src="{{course.image || 'https://camarasal.com/wp-content/uploads/2020/08/default-image-5-1.jpg'}}" alt="" width="50" height="50" class="rounded-md">
+            <img src="{{course.picture || 'https://camarasal.com/wp-content/uploads/2020/08/default-image-5-1.jpg'}}" alt="" width="50" height="50" class="rounded-md">
         </td>
     </ng-container>
 
@@ -33,7 +33,7 @@
         <th mat-header-cell *matHeaderCellDef>
             Grado
         </th>
-        <td mat-cell *matCellDef="let course"> {{course.grade?.name}} </td>
+        <td mat-cell *matCellDef="let course"> {{course.grade?.title}} </td>
     </ng-container>
 
     <!-- Symbol Column -->

@@ -37,15 +37,15 @@
                     <button class="p-1.5 flex items-center border rounded-lg bg-white leading-4 gap-2">
                         <img src="https://www.w3schools.com/howto/img_avatar.png" class="rounded-full" alt="" height="27" width="27">
                         <div class="space-y-0 flex flex-col items-start">
-                            <span class="font-semibold text-[13px]">{{user?.name}}</span>
-                            <span class="text-gray-500 text-[12px]">{{user?.role}}</span>
+                            <span class="font-semibold text-[13px]">{{getFullnameUser()}}</span>
+                            <span class="text-gray-500 text-[12px]">{{getRoleUser()}}</span>
                         </div>
                         <mat-icon>keyboard_arrow_down</mat-icon>
                     </button>
                 </button>
                 <mat-menu #menu="matMenu" class="profile-dropdown w-44">
                     <div>
-                        <button mat-menu-item [routerLink]="['/virtual/student/profile', user?._id]">Mi perfil</button>
+                        <button mat-menu-item [routerLink]="['/virtual/student/profile', getIdUser()]">Mi perfil</button>
                         <button mat-menu-item>Editar perfil</button>
                         <button mat-menu-item>Configuración</button>
                     </div>

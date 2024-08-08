@@ -10,7 +10,7 @@ export class GradeService {
   private gradesSubject = new BehaviorSubject<Grade[]>([]);
   grades$ = this.gradesSubject.asObservable();
 
-  private url = "http://localhost:3000/api/grades"
+  private url = "http://127.0.0.1:8000/api/v1/grades/"
 
   constructor(private _http: HttpClient) { }
 

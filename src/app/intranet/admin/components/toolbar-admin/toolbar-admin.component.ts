@@ -21,10 +21,15 @@ export class ToolbarAdminComponent implements OnInit {
   constructor(private authService: AuthenticationService){}
 
   ngOnInit(): void {
-    this.getUserAuthenticated()
   }
 
-  getUserAuthenticated(){
-    this.user = this.authService.getUser()
+  getFullnameUser(){
+    this.user = this.authService.getFullnameUser()
+  }
+  getRoleUser(){
+    this.user = this.authService.getRole()
+  }
+  getIdUser(){
+    this.user = this.authService.getIdUser()
   }
 }

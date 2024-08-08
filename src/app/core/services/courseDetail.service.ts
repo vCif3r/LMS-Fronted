@@ -6,7 +6,7 @@ import { CourseDetail } from '../model/courseDetail';
   providedIn: 'root'
 })
 export class CourseDetailService {
-  private url = "http://localhost:3000/api/course-detail"
+  private url = "http://127.0.0.1:8000/api/v1/course-detail"
   constructor(private _http: HttpClient) { }
 
   listCourses(){

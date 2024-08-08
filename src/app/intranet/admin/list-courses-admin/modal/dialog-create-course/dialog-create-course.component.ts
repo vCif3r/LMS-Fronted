@@ -12,6 +12,8 @@ import { Grade } from '../../../../../core/model/grade';
 })
 export class DialogCreateCourseComponent {
   grades: Grade[] = []; // List of grades to populate the select dropdown
+  selectedImage: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null; 
 
   createCourseForm: FormGroup
 
@@ -38,15 +40,41 @@ export class DialogCreateCourseComponent {
     });
   }
 
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedImage = event.target.files[0];
+  
+      // Comprueba si selectedImage no es null antes de continuar
+      if (this.selectedImage) {
+        // Leer la imagen y establecer la vista previa
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.imagePreview = reader.result;
+        };
+  
+        reader.readAsDataURL(this.selectedImage);
+      }
+    }
+  }
+  
+
   saveCourse() {
-    if (this.createCourseForm.valid) {
-      this.courseService.saveCourse(this.createCourseForm.value).subscribe(
+    if (this.createCourseForm.valid && this.selectedImage !== null) {
+      const formData = new FormData();
+      formData.append('title', this.createCourseForm.get('title')!.value);
+      formData.append('description', this.createCourseForm.get('description')!.value);
+      formData.append('grade', this.createCourseForm.get('grade')!.value); // Asegúrate de que esto sea el ID
+      formData.append('picture', this.selectedImage, this.selectedImage.name);
+  
+      this.courseService.saveCourse(formData).subscribe(
         data => {
           console.log(data);
-          this.courseService.updateCoursesList(); // Update the list in the service
-          this.dialogRef.close(true); // Close the dialog and return a result
-        }
+          this.courseService.updateCoursesList(); // Actualiza la lista en el servicio
+          this.dialogRef.close(true); // Cierra el diálogo y devuelve un resultado
+        },
+        error => console.error('Error al guardar el curso:', error)
       );
     }
   }
+  
 }

@@ -7,13 +7,13 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="Nombre">
     <th mat-header-cell *matHeaderCellDef> Nombre </th>
-    <td mat-cell *matCellDef="let grade"> {{grade.name}} </td>
+    <td mat-cell *matCellDef="let grade"> {{grade.title}} </td>
   </ng-container>
 
   <!-- Name Column -->
-  <ng-container matColumnDef="Descripcion">
-    <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-    <td mat-cell *matCellDef="let grade"> {{grade.description}} </td>
+  <ng-container matColumnDef="Nivel">
+    <th mat-header-cell *matHeaderCellDef> Nivel </th>
+    <td mat-cell *matCellDef="let grade"> {{grade.level.title}} </td>
   </ng-container>
 
   <ng-container matColumnDef="Acciones">

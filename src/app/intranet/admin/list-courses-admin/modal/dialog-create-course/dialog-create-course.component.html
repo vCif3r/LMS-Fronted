@@ -1,29 +1,42 @@
-<h2 mat-dialog-title>Nuevo Estudiante</h2>
-<form [formGroup]="createCourseForm" (ngSubmit)="saveCourse()" >
-    <mat-dialog-content>
-        <mat-form-field appearance="fill">
-            <mat-label>Título</mat-label>
-            <input matInput placeholder="Titulo" formControlName="title">
-        </mat-form-field>
+<div class="w-[1200px]">
+    <h2 mat-dialog-title>Nuevo Curso</h2>
+    <form [formGroup]="createCourseForm" (ngSubmit)="saveCourse()" class="w-full">
+        <div class="flex w-full">
+            <div class="w-[70%]">
+                <mat-dialog-content>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Título</mat-label>
+                        <input matInput placeholder="Titulo" formControlName="title">
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Descripción</mat-label>
+                        <input matInput placeholder="Descripción" formControlName="description">
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>Selecciona un grado</mat-label>
+                        <mat-select formControlName="grade">
+                            <mat-option *ngFor="let grade of grades" [value]="grade.id">
+                                {{ grade.title + ' - '+ grade.level.title }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <input type="file" (change)="onFileChange($event)">
+                </mat-dialog-content>
+            </div>
+            <div class="w-[30%] p-3">
+                <div>
+                    <img [src]="imagePreview" alt="Image Preview" class="w-fit h-fit">
+                </div>
+            </div>
+        </div>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Descripción</mat-label>
-            <input matInput placeholder="Descripción" formControlName="description">
-        </mat-form-field>
-        
-        <mat-form-field>
-            <mat-label>Grado</mat-label>
-            <mat-select formControlName="grade">
-                <mat-option *ngFor="let grade of grades" [value]="grade._id">
-                    {{ grade.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-
-    </mat-dialog-content>
-    <mat-dialog-actions [align]="'end'">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit"
-            [disabled]="!createCourseForm.valid">Guardar</button>
-    </mat-dialog-actions>
-</form>
+        <mat-dialog-actions [align]="'end'">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit"
+                [disabled]="!createCourseForm.valid">Guardar</button>
+        </mat-dialog-actions>
+    </form>
+</div>
