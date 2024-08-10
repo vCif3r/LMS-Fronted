@@ -10,7 +10,7 @@
             <div class="flex-none w-auto max-w-full px-3">
                 <div
                     class="text-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-                    <img src="{{student?.avatar || 'https://www.w3schools.com/howto/img_avatar.png'}}"
+                    <img src="{{student?.profile_picture || 'https://www.w3schools.com/howto/img_avatar.png'}}"
                         alt="profile_image" class="w-full h-24 shadow-soft-sm rounded-xl" />
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     </li>
                     <li
                         class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit">
-                        <strong class="text-slate-700">Mobile:</strong> {{student?.phone}}
+                        <strong class="text-slate-700">Mobile:</strong> {{student?.phone_number}}
                     </li>
                     <li
                         class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit">

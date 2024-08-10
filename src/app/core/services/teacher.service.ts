@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Teacher } from '../model/teacher';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeacherService {
-  private teachersSubject = new BehaviorSubject<Teacher[]>([]);
+  private teachersSubject = new BehaviorSubject<User[]>([]);
   teachers$ = this.teachersSubject.asObservable();
 
   private url = "http://127.0.0.1:8000/api/v1/teachers/"
@@ -20,11 +20,11 @@ export class TeacherService {
     });
   }
 
-  findAll(): Observable<Teacher[]>{
-    return this._http.get<Teacher[]>(this.url)
+  findAll(): Observable<User[]>{
+    return this._http.get<User[]>(this.url)
   }
 
-  saveteacher(student: Teacher): Observable<Teacher>{
-    return this._http.post<Teacher>(this.url, student)
+  saveteacher(student: User): Observable<User>{
+    return this._http.post<User>(this.url, student)
   }
 }

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
-import { SidenavAdminComponent } from './components/sidenav-admin/sidenav-admin.component';
-import { ToolbarAdminComponent } from './components/toolbar-admin/toolbar-admin.component';
 import { SharedModule } from '../../core/shared/shared-module';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -18,8 +16,6 @@ import { DialogCreateTeacherComponent } from './list-teachers-admin/modal/dialog
   declarations: [
     AdminComponent,
     DashboardAdminComponent,
-    SidenavAdminComponent,
-    ToolbarAdminComponent,
     ListStudentAdminComponent,
     ListGradesAdminComponent,
     DialogCreateGradeComponent,

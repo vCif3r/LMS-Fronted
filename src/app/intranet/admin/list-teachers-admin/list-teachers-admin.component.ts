@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Teacher } from '../../../core/model/teacher';
 import { TeacherService } from '../../../core/services/teacher.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateTeacherComponent } from './modal/dialog-create-teacher/dialog-create-teacher.component';
+import { User } from '../../../core/model/user';
 
 @Component({
   selector: 'app-list-teachers-admin',
@@ -13,9 +13,7 @@ import { DialogCreateTeacherComponent } from './modal/dialog-create-teacher/dial
 export class ListTeachersAdminComponent implements OnInit {
 
   displayedColumns: string[] = ['Nombre', 'Apellido', 'Correo', 'Telefono', 'Acciones'];
-  dataSource = new MatTableDataSource<Teacher>();
-
-  //students: User[] = [];
+  dataSource = new MatTableDataSource<User>();
 
   constructor(
     private _teacherService: TeacherService) {

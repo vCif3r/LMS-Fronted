@@ -3,7 +3,6 @@ import { User } from '../../../core/model/user';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../../../core/services/student.service';
-import { Student } from '../../../core/model/student';
 
 @Component({
   selector: 'app-profile-student',
@@ -11,7 +10,7 @@ import { Student } from '../../../core/model/student';
   styleUrl: './profile-student.component.css'
 })
 export class ProfileStudentComponent implements OnInit {
-  student?: Student;
+  student?: User;
   constructor(private newTitle: Title,
     private route: ActivatedRoute,
     private service: StudentService
@@ -21,7 +20,7 @@ export class ProfileStudentComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('studentId');
     this.service.getStudentbyID(id).subscribe((data) => {
       this.student = data;
-      this.newTitle.setTitle(`${this.student.name} ${this.student.lastname}`)
+      this.newTitle.setTitle(`${this.student?.name} ${this.student?.lastname}`)
     });
   }
 }

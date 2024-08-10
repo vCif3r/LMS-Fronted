@@ -13,9 +13,9 @@
     <!-- card course list/grid -->
     <div [ngClass]="currentView" class="p-4">
         @for (c of enrollments; track $index) {
-            @for (item of c.courseDetail; track $index) {
+            <!-- @for (item of c.courseDetail; track $index) {
                 <app-course-card [courseDetails]="item" [view]="currentView"></app-course-card>
-            }
+            } -->
         }
     </div>
 </div>

@@ -1,12 +1,12 @@
 <main class="h-full sidenav">
     <section class="flex flex-col gap-10 p-2">
         <div class="flex gap-2 items-center shadow-sm">
-            <img src="https://scontent.ftru1-1.fna.fbcdn.net/v/t1.6435-9/162123563_185273916737830_2316692424222995427_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=YJm5J2DACVIQ7kNvgE8C3rP&_nc_ht=scontent.ftru1-1.fna&oh=00_AYC2ZAyfxPS9fyLlSUHVpyh2PyvG76gNuNgsiqLUMOTFxQ&oe=6699F817" alt="img"
+            <img src="https://media.istockphoto.com/id/863958484/vector/book-icon.jpg?s=612x612&w=0&k=20&c=LTS6ZK5BwnXAqNVPzJeGwxi_tz-LPgxR0qpZH6Y_B_c=" alt="img"
                 class="w-10 h-10 rounded-md border">
             <h1 class="text-slate-300 font-semibold text-xl">JCCS<span>Virtual</span> </h1>
         </div>
         <ul class="flex flex-col">
-            @for (item of navItems; track $index) {
+            @for (item of sidebarItems; track $index) {
                 <li class="w-full">
                     <a routerLink="{{item.url}}" class="navlink" routerLinkActive="active">
                         <div class="flex items-center justify-center text-center" >

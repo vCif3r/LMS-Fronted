@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../core/model/course';
 import { CourseService } from '../../../core/services/course.service';
-import { Enrollement } from '../../../core/model/enrollement';
-import { EnrollmentService } from '../../../core/services/enrollement.service';
+import { EnrollmentService } from '../../../core/services/enrollment.service';
 import { AuthenticationService } from '../../../core/services/authentication.service';
+import { Enrollment } from '../../../core/model/enrollment';
 
 @Component({
   selector: 'app-courses-student',
@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../../core/services/authentication.ser
   styleUrl: './courses-student.component.css'
 })
 export class CoursesStudentComponent implements OnInit {
-  enrollments: Enrollement[] = []
+  enrollments: Enrollment[] = []
   constructor(private enrollmentService: EnrollmentService, private authService: AuthenticationService){}
 
   size:any = 1

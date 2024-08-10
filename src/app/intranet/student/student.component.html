@@ -1,16 +1,1 @@
-<mat-sidenav-container autosize>
-    <mat-sidenav #sidenav fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false" class="shadow-2xl">
-        <!-- sidebar -->
-        <app-sidenav-student/>
-        <!-- end sidebar -->
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="bg-gradient-to-r from-gray-100/50 to-blue-50/50 px-[1rem]">
-            <!-- toolbar -->
-        <app-toolbar-student [isHandset$]="isHandset$" (toggleSidenav)="toggleSidenav()"/>   
-        <!-- end toolbar -->
-        <router-outlet/>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<router-outlet/>

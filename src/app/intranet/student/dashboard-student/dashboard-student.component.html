@@ -28,9 +28,9 @@
             </div>
             <section class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
                 @for (c of enrollment; track $index) {
-                    @for (cd of c.courseDetail; track $index) {
+                    <!-- @for (cd of c.courseDetail; track $index) {
                         <app-course-card [courseDetails]="cd"></app-course-card>
-                    }
+                    } -->
                 }
             </section>
         </div>

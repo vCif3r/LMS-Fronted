@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Course } from '../../../../core/model/course';
-import { Enrollement } from '../../../../core/model/enrollement';
 import { CourseDetail } from '../../../../core/model/courseDetail';
 
 @Component({

@@ -4,10 +4,14 @@ import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CensorPhonePipe } from './censor-phone.pipe';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
-    CensorPhonePipe
+    CensorPhonePipe,
+    SidenavComponent,
+    ToolbarComponent
     // Declaraciones de componentes, directivas y pipes compartidos
   ],
   imports: [
@@ -19,7 +23,9 @@ import { CensorPhonePipe } from './censor-phone.pipe';
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    CensorPhonePipe
+    CensorPhonePipe,
+    SidenavComponent,
+    ToolbarComponent
   ]
 })
 export class SharedModule { }

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Student } from '../model/student';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-  private studentsSubject = new BehaviorSubject<Student[]>([]);
+  private studentsSubject = new BehaviorSubject<User[]>([]);
   students$ = this.studentsSubject.asObservable();
 
   private url = "http://127.0.0.1:8000/api/v1/students/"
@@ -20,15 +20,15 @@ export class StudentService {
     });
   }
 
-  findAll(): Observable<Student[]>{
-    return this._http.get<Student[]>(this.url)
+  findAll(): Observable<User[]>{
+    return this._http.get<User[]>(this.url)
   }
 
-  saveStudent(student: Student): Observable<Student>{
-    return this._http.post<Student>(this.url, student)
+  saveStudent(student: User): Observable<User>{
+    return this._http.post<User>(this.url, student)
   }
 
   getStudentbyID(id: any){
-    return this._http.get<Student>(`${this.url}/${id}`)
+    return this._http.get<User>(`${this.url}/${id}`)
   }
 }

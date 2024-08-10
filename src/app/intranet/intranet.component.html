@@ -1,1 +1,14 @@
-<router-outlet />
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false" class="shadow-2xl">
+        <app-sidenav/>
+    </mat-sidenav>
+    <mat-sidenav-content class="bg-background-light transition duration-150 dark:bg-background-dark min-h-screen">
+        <div class="px-[1rem]">
+            <!-- toolbar -->
+            <app-toolbar [isHandset$]="isHandset$" (toggleSidenav)="toggleSidenav()"/> 
+            <!-- end toolbar -->
+            <router-outlet />
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

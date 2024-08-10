@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TeacherService } from '../../../../../core/services/teacher.service';
 import { GradeService } from '../../../../../core/services/grade.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { User } from '../../../../../core/model/user';
+import { RoleService } from '../../../../../core/services/role.service';
 
 @Component({
   selector: 'app-dialog-create-teacher',
@@ -12,22 +14,20 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogCreateTeacherComponent {
   grades: Grade[] = [];
-
-
   teacherSaveForm: FormGroup
 
   constructor(
     private fb: FormBuilder,
     private teacherService: TeacherService,
     private gradeService: GradeService,
+    private roleService: RoleService,
     private dialogRef: MatDialogRef<DialogCreateTeacherComponent>
   ){
     this.teacherSaveForm = this.fb.group({
       name: ['', [Validators.required]],
       lastname: ['', Validators.required],
       email: ['', Validators.required],
-      phone: ['', Validators.required],
-      grade: ['', Validators.required],
+      phone_number: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
@@ -42,7 +42,7 @@ export class DialogCreateTeacherComponent {
     });
   }
 
-  saveStudent() {
+  saveTeacher() {
     console.log(this.teacherSaveForm.value);
     if (this.teacherSaveForm.valid) {
       this.teacherService.saveteacher(this.teacherSaveForm.value).subscribe(

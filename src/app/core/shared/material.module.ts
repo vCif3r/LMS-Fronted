@@ -99,7 +99,6 @@ import { PortalModule } from '@angular/cdk/portal';
     PortalModule,
   ],
   declarations: [
-    
   ],
 })
 export class MaterialModule {}

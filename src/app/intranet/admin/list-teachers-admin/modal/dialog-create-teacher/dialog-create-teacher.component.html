@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Nuevo Profesor</h2>
-<form [formGroup]="teacherSaveForm" (ngSubmit)="saveStudent()" >
+<form [formGroup]="teacherSaveForm" (ngSubmit)="saveTeacher()" >
     <mat-dialog-content>
         <div class="flex gap-2">
             <mat-form-field appearance="fill">
@@ -18,7 +18,7 @@
         <div class="flex gap-2">
             <mat-form-field appearance="fill">
                 <mat-label>Teléfono</mat-label>
-                <input matInput placeholder="Teléfono" formControlName="phone">
+                <input matInput placeholder="Teléfono" formControlName="phone_number">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Contraseña</mat-label>
@@ -26,14 +26,14 @@
             </mat-form-field>
         </div>
         
-        <mat-form-field>
+        <!-- <mat-form-field>
             <mat-label>Grado</mat-label>
             <mat-select formControlName="grade">
                 <mat-option *ngFor="let grade of grades" [value]="grade.id">
                     {{ grade.title }}
                 </mat-option>
             </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
 
     </mat-dialog-content>
     <mat-dialog-actions [align]="'end'">

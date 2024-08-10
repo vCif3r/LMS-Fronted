@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -8,6 +8,8 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthenticationService {
   private url = "http://127.0.0.1:8000/api/v1"
+  private userSubject = new BehaviorSubject<any>(null);
+  user$: Observable<any> = this.userSubject.asObservable();
 
   constructor(private _http: HttpClient) { }
 
@@ -16,6 +18,7 @@ export class AuthenticationService {
       map(response => {
         if (response && response.access) {
           localStorage.setItem('token', response.access);
+          this.userSubject.next(response.access);
         }
         return response;
       })
@@ -83,6 +86,7 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem('token');
     window.location.reload()
+    this.userSubject.next(null);
   }
 
 }
