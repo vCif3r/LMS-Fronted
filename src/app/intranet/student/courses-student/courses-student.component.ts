@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../../core/model/course';
-import { CourseService } from '../../../core/services/course.service';
 import { EnrollmentService } from '../../../core/services/enrollment.service';
-import { AuthenticationService } from '../../../core/services/authentication.service';
 import { Enrollment } from '../../../core/model/enrollment';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-courses-student',
@@ -12,9 +10,7 @@ import { Enrollment } from '../../../core/model/enrollment';
 })
 export class CoursesStudentComponent implements OnInit {
   enrollments: Enrollment[] = []
-  constructor(private enrollmentService: EnrollmentService, private authService: AuthenticationService){}
-
-  size:any = 1
+  constructor(private enrollmentService: EnrollmentService, private authService: AuthService){}
 
   currentView:string = 'grid'
   setView(view: string) {
@@ -29,15 +25,10 @@ export class CoursesStudentComponent implements OnInit {
     this.enrollmentService.ListByIdStudent(this.authService.getIdUser()).subscribe( 
       enrollments => {
         this.enrollments = enrollments
-        this.enrollments.forEach(enrollment => {
-          this.size++
-        })
-        console.log(enrollments)
       }
     )
-    }
+  }
 }
-  
 
   // courses: Course[] = [
   //   {

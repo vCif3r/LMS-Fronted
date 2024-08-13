@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '../../../services/authentication.service';
 import { ThemeService } from '../../../services/theme.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -18,7 +18,7 @@ export class ToolbarComponent {
 
   listNotifications: any[] = [];
 
-  constructor(private authService: AuthenticationService, public _theme: ThemeService){}
+  constructor(private authService: AuthService, public _theme: ThemeService){}
 
   ngOnInit(): void {
     

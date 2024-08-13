@@ -21,16 +21,14 @@
                 </div>
             </div>
         </section>
-        <div class="p-6 border rounded-md bg-gray-50">
+        <div class="p-6 border rounded-md bg-gray-50 dark:bg-zinc-900 dark:border-zinc-800 ">
             <div class="w-full flex justify-between items-start pb-3">
-                <h1 class="font-medium text-2xl">Mis cursos actuales</h1>
-                <a routerLink="/virtual/student/courses" class="leading-6 text-gray-900 border-b-2 border-white hover:border-cyan-700 transition duration-300 ease-in-out">Ver todos</a>
+                <h1 class="font-medium text-2xl dark:text-slate-300">Mis cursos actuales</h1>
+                <a routerLink="/virtual/student/courses" class="leading-6 text-gray-900 border-b-2 dark:text-gray-300 border-transparent hover:border-cyan-700 transition duration-300 ease-in-out">Ver todos</a>
             </div>
             <section class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
-                @for (c of enrollment; track $index) {
-                    <!-- @for (cd of c.courseDetail; track $index) {
-                        <app-course-card [courseDetails]="cd"></app-course-card>
-                    } -->
+                @for (enrollment of enrollments; track $index) {
+                    <app-course-card [enrollment]="enrollment"></app-course-card>
                 }
             </section>
         </div>

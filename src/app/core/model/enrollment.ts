@@ -1,10 +1,10 @@
-import { Grade } from "./grade";
+import { Course } from "./course";
 import { User } from "./user";
 
 export interface Enrollment {
     id: any
     student: User
-    grade: Grade
+    course: Course
     is_active: boolean
     created_at: Date
     update_at: Date

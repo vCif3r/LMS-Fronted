@@ -6,7 +6,7 @@ import { Enrollment } from '../model/enrollment';
   providedIn: 'root'
 })
 export class EnrollmentService {
-  private url = "http://127.0.0.1:8000/api/v1/enrollment/"
+  private url = "http://127.0.0.1:8000/api/v1/enrollments/"
   constructor(private _http: HttpClient) { }
 
   listAll(){

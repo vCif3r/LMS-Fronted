@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../../core/model/course';
 import { EnrollmentService } from '../../../core/services/enrollment.service';
-import { AuthenticationService } from '../../../core/services/authentication.service';
 import { Enrollment } from '../../../core/model/enrollment';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-dashboard-student',
@@ -10,16 +10,16 @@ import { Enrollment } from '../../../core/model/enrollment';
   styleUrl: './dashboard-student.component.css'
 })
 export class DashboardStudentComponent implements OnInit {
-  enrollment: Enrollment[] = []
+  enrollments: Enrollment[] = []
 
   constructor(private _enrollmentService: EnrollmentService,
-    private _authenticationService: AuthenticationService,
+    private _authenticationService: AuthService,
   ){}
 
   ngOnInit(): void {
     this._enrollmentService.ListActivesByIdStudent(this._authenticationService.getIdUser()).subscribe(
       data => {
-        this.enrollment = data
+        this.enrollments = data
         console.log("data: ",data)
       }
     )

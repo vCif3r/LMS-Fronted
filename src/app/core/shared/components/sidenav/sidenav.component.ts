@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthService } from '../../../services/auth.service';
 
 interface Navmenu {
   title: string;
@@ -25,7 +25,7 @@ export class SidenavComponent implements OnInit {
   //   { title: 'Enrollments', icon: 'assignment', url: '/virtual/admin/enrollments' },
   // ]
 
-  constructor(private authService: AuthenticationService){}
+  constructor(private authService: AuthService){}
 
   ngOnInit(): void {
     this.userRole = this.authService.getRole()

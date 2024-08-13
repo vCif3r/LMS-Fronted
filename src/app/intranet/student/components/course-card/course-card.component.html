@@ -1,0 +1,19 @@
+<div [ngClass]="view" class="card-course dark:bg-zinc-950 ">
+  <div class="p-2">
+    <img src="{{enrollment?.course?.picture || 'https://camarasal.com/wp-content/uploads/2020/08/default-image-5-1.jpg'}}" alt="{{enrollment?.course?.title}}" class="w-full rounded-md">
+  </div>
+
+  <div class="w-full px-3 py-1 space-y-3">
+    <!-- instructor section -->
+    <div class="flex gap-3">
+      <img class="rounded-full" src="{{enrollment?.course?.teacher?.profile_picture || 'https://dreamslms.dreamstechnologies.com/html/assets/img/user/user.jpg'}}" alt="" width="50" height="50">
+      <div>
+        <h1 class="font-semibold dark:text-slate-300">{{enrollment?.course?.teacher?.name}} {{enrollment?.course?.teacher?.lastname}}</h1>
+        <p class="text-sm text-gray-500">Docente</p>
+      </div>
+    </div>
+    <p class="text-gray-500">{{enrollment?.course?.description}}</p>
+    <button mat-button color="primary" class="w-full" routerLink="/virtual/student/courses/1">Ver más</button>
+  </div>
+</div>
+
